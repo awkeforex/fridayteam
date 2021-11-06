@@ -1,0 +1,104 @@
+.main1 {
+  width: 100vw;
+  margin: auto;
+  position: relative;
+  top: 4vh;
+  font-family: "Oswald", sans-serif;
+}
+
+.main2 {
+  width: 100vw;
+  margin: auto;
+  background-color: #3f4156;
+  color: white;
+  padding: 0.5vw;
+}
+
+.flag {
+  width: 5vw;
+  height: 3vw;
+  position: relative;
+  bottom: 0.5vw;
+}
+
+.pt {
+  font-size: 2vw;
+}
+
+table {
+  color: white;
+}
+
+.logo {
+  width: 2vw;
+  height: 2vw;
+}
+
+td {
+  text-align: center;
+}
+
+.name {
+  text-align: left;
+}
+tbody {
+  color: whitesmoke;
+  background-color: #3f4156;
+}
+thead {
+  background-color: #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+@keyframes four {
+  0% {
+    position: relative;
+    right: 0vw;
+  }
+
+  50% {
+    position: relative;
+    right: 2vw;
+  }
+
+  100% {
+    position: relative;
+    right: 0vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .main1,
+  .main2 {
+    width: 100vw;
+    height: 220vw;
+  }
+
+  .name {
+    font-size: 4vw;
+  }
+
+  .logo {
+    height: 6vw;
+    width: 6vw;
+  }
+
+  h2 {
+    font-size: 8vw;
+  }
+
+  .flag {
+    width: 10vw;
+    height: 6vw;
+    position: relative;
+    bottom: 1vw;
+  }
+
+  .pt {
+    font-size: 5vw;
+  }
+}
+
+tr:nth-child(-n + 4) {
+  color: green;
+}
