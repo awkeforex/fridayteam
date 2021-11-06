@@ -1,0 +1,74 @@
+{% extends 'main.html'%}
+{% load static%}
+
+
+
+
+
+
+
+{% block content %}
+
+    <main class="create-room layout">
+      <div class="container">
+        <div class="layout__box">
+          <div class="layout__boxHeader">
+            <div class="layout__boxTitle">
+              <a href="{% url 'home'%}">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>arrow-left</title>
+                  <path
+                    d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+                  ></path>
+                </svg>
+              </a>
+              <h3 style="text-align: center;">Match  Result Register </h3>
+            </div>
+          </div>
+          
+          <div class="topics-page layout__body">
+            {% if request.session.match_week %}
+              <h3 class="text-center fs-4 align-content-center"> You have submiited the result </h3>
+            {% else %}
+            <div class="container d-flex justify-content-center">
+              <div class="row ">
+
+              
+              <h2 class="fs-1 fw-lighter  text-center">Game Week {{week_id}} </h2>
+              <div class="container-md mt-5 p-4  ms-lg-5 justify-content-center align-content-center">
+              
+                  <form class="row g-3 p-2 my-lg-2 ms-5" method="post">
+                        {% csrf_token %}
+                      
+                          <div class="col-md-4 ms-md-5 col-sm-12">
+                                <label for="inputState" class="form-label fs-1 text-center  ">Yellow Team </label>
+                                  {{form.yellow_team}}
+                          </div>
+                          <div class="col-md-2 ms-md-5 col-sm-12">
+                              <h1 class="mt-5">VS</h1>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="inputState" class="form-label fs-1 text-center  ">Red  Team</label>
+                                {{form.red_team}}
+                            </div>
+                     
+                        <div class="d-grid gap-2">
+                              <button type="submit" class=" mt-lg-5 btn-outline-secondary  btn-lg ">Submit</button>
+                         </div>
+                    </form>
+                </div>
+              </div>
+              </div>
+    
+
+    </div>
+    {% endif %}
+              
+             
+          </div>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock content%}

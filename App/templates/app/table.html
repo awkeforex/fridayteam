@@ -1,0 +1,54 @@
+{% extends 'main.html' %} {% block content %} {% load static %}
+<div class="main1">
+  <div class="main2 table-responsive">
+    <center>
+      <h2>
+        Friday League
+        <img class="flag" src="{% static 'images/logo.png'%}" />
+      </h2>
+      <p class="pt">Points Table </p>
+      <table class="table">
+        <thead>
+          <td class="name">Names</td>
+          <td>P</td>
+          <td>W</td>
+          <td>D</td>
+          <td>L</td>
+          <td>POINTS</td>
+        </thead>
+        <tbody>
+          {% for user in users %}
+           <style>
+             .top:nth-child(-n+6){
+               background-color: rgba(91, 207, 146, 0.431);
+                  color: honeydew;
+             }
+             a {
+               color: ivory;
+             }
+             a:hover{
+               color: rgb(168, 240, 75);
+             }
+           </style>
+          <tr class="top">
+            <td class="name">&nbsp;&nbsp;<span>
+                <img src="{{user.profileuser.profile_pic.url}}"
+                alt="" style="border-radius: 50%; width: 18px;"></span> 
+                <a href="{% url 'profile' user.id%}">{{user.username|title}}</a>
+            </td>
+
+              <td>{{user.Total_games}}</td>
+
+              <td>{{user.wins}}</td>
+              <td>{{user.draw}}</td>
+              <td>{{user.loss}}</td>
+              <td>{{user.points}}</td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </center>
+  </div>
+</div>
+{% endblock %}

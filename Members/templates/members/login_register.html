@@ -1,0 +1,12 @@
+{% extends 'main.html'%}
+
+{% block content %}
+{% if page == 'login'%}
+    {%  include 'members/login.html'%}
+{% else %}
+{% include 'members/signup.html'%}
+
+{% endif %}
+
+
+{% endblock %}

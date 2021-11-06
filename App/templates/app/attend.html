@@ -1,0 +1,72 @@
+{% extends 'main.html'%}
+{% load static%}
+
+
+
+
+
+
+
+{% block content %}
+
+    <main class="create-room layout">
+      <div class="container">
+        <div class="layout__box">
+          <div class="layout__boxHeader">
+            <div class="layout__boxTitle">
+              <a href="{% url 'home'%}">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>arrow-left</title>
+                  <path
+                    d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+                  ></path>
+                </svg>
+              </a>
+              <h3 style="text-align: center;">Attendence of player form </h3>
+            </div>
+          </div>
+          
+          <div class="topics-page layout__body">
+           
+            
+            {% if request.user.username == request.session.username and week_id == request.session.week %}
+               <center>
+                <h2 >you allready submited your attendence </h2>
+                <a href="#"> update your attendence </a>
+                <br>
+                <br>
+                <a href="{% url 'attendencetable'%}"> view attendence table </a>
+               </center>
+              
+            {% else %}
+              <center>
+              <h2 class="fs-1 fw-lighter  text-center">Game Week {{week_id}} </h2>
+              
+              <form  method="post">
+                {% csrf_token %}
+                <div class="col-md-4   col-sm-12">
+                  <label for="inputState" class="form-label fs-1 text-center mb-5  ">Attendence </label>
+                    {{form.Attendence_option}}
+                 </div>
+                 <div class="gap-2  mt-5">
+                  <button type="submit" class=" mt-lg-5 btn-outline-secondary  btn-lg ">Submit</button>
+                 </div>
+              </form>
+              </center>
+             {%  endif %}
+              
+   
+            
+              
+            
+             
+
+              
+             
+          </div>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock content%}

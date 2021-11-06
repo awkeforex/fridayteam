@@ -1,0 +1,95 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+{% load static  %}
+<center>
+<div class="container mt-5">
+
+    <h3 class="fs-1 fw-bolder  text-white "> Yellow team players</h3>   
+</div>
+</center>
+
+<hr>
+<div class="container-xl ">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <h1 class="text-center text-white">Yellow players </h1>
+        <br>
+        
+        <div class="table-responsive">
+            <table class="table    text-center table-hover table-borderless">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">User Name</th>
+                            <th scope="col">current team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in yellowUsers%}
+                        
+                            <tr class="text-center">
+                                
+                                <td><a href="{% url 'team-edit' user.id %}">{{user.username|title}}</a></td>
+                                <td class="text-white">{{user.currentTeam}}</td>
+                            
+                            </tr>
+                        
+                          {% endfor %}
+                    </tbody>
+                    </table>
+                 </div>
+
+            </div>
+  
+
+
+
+        <div class="col-md-6 col-sm-12">
+        <h1 class="text-center text-white">Red Players </h1>
+        <br>
+     
+
+        <div class="table-responsive">
+            <table class="table    text-center table-hover table-borderless">
+
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">User Name</th>
+                            <th scope="col">Current Team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in redUsers %}
+                        <tr class="text-center">
+                            
+                            <td><a href="{% url 'team-edit' user.id %}">{{user.username|title}}</a></td>
+                            <td class="text-white">{{user.currentTeam}}</td>
+                           
+                        </tr>
+                          {% endfor %}
+                    </tbody>
+            </table>
+            <br>
+           
+           
+                 
+               
+               
+             
+             
+            
+            
+          </div>
+        
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+  

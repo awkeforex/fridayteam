@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static  %}
+<center>
+<div class="container mt-5">
+    <h1 class="fs-1 fw-bolder  text-white "> Game week {{week_day.id}}</h1>
+    <h3 class="fs-1 fw-bolder  text-white "> Ciyaartoyda diyaarka ah  Cawa</h3>   
+</div>
+</center>
+
+<hr>
+<div class="container-xl ">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <h1 class="text-center text-white">Yellow players </h1>
+        <br>
+        <h6 class="fs-4 fw-bold text-white" style="display: flex; justify-content: space-between">Ciyaartoyda diyaarka ah kooxda Huruuda <span> <a href="{% url 'attendencetable'%}">{{ready_yellow.count}}  players</a></span></h6>
+        <hr>
+        <div class="table-responsive">
+            <table class="table    text-center table-hover table-borderless">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">User Name</th>
+                            <th scope="col">position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in ready_yellow %}
+                        
+                            <tr class="text-center">
+                                
+                                <td><a href="{% url 'profile' user.id %}">{{user.username|title}}</a></td>
+                                <td>{{user.position}}</td>
+                            
+                            </tr>
+                        
+                          {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+
+        <br>
+        <h6 class="fs-4 fw-bold text-white" style="display: flex; justify-content: space-between">Ciyaartoyda ka Maqan  Huruuda <span> <a href="{% url 'attendencetable'%}">{{absent_yellow.count}}  players</a></span></h6>
+        <hr>
+
+            {% for user in absent_yellow %}
+            <a href="{% url 'profile' user.id%}">{{user.username|title}} </a> ({{user.position}})
+            {% empty %}
+                        No player is missing 
+            {% endfor%}
+            
+              
+           
+        </div>
+  
+
+
+
+        <div class="col-md-6 col-sm-12">
+        <h1 class="text-center text-white">Red Players </h1>
+        <br>
+        <h6 class="fs-4 fw-bold text-white"style="display: flex; justify-content: space-between">Ciyaartoyda diyaarka ah kooxda Casaanka  <span><a href="{% url 'attendencetable'%}">{{ready_red.count}}  players </a></span></h6>
+        <hr>
+
+        <div class="table-responsive">
+            <table class="table    text-center table-hover table-borderless">
+
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">User Name</th>
+                            <th scope="col">position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in ready_red %}
+                        <tr class="text-center">
+                            
+                            <td><a href="{% url 'profile' user.id %}">{{user.username|title}}</a></td>
+                            <td>{{user.position}}</td>
+                           
+                        </tr>
+                          {% endfor %}
+                    </tbody>
+            </table>
+            <br>
+            <h6 class="fs-4 fw-bold text-white" style="display: flex; justify-content: space-between">Ciyaartoyda ka Maqan kooxda Casaanka <span> <a href="{% url 'attendencetable'%}">{{absent_red.count}}  players</a></span></h6>
+            <hr>
+           
+               
+                 {% for user in absent_red %}
+                 <a href="{% url 'profile' user.id%}">{{user.username|title}} </a> ({{user.position}})  
+                 {% empty %}
+                        No player is missing 
+                 {% endfor%}   
+               
+               
+             
+             
+            
+            
+          </div>
+        
+        </div>
+    </div>
+</div>
+{% endblock %}
